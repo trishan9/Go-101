@@ -7,6 +7,11 @@ import (
 )
 
 func main() {
+	// Stacking Defers
+	defer fmt.Println("This will be printed at the end of the function 1")
+	defer fmt.Println("This will be printed at the end of the function 2")
+	defer fmt.Println("This will be printed at the end of the function 3")
+
 	// Constants, Variables, Data types
 	var name string = "Trishan"
 	var age uint16 = 18
@@ -154,6 +159,81 @@ func main() {
 	}
 	var newName = strBuilder.String()
 	fmt.Println(newName)
+
+	var sliceOfIntegers []int = []int{1, 2, 3, 4, 5}
+	fmt.Printf("Sum of all integers is %v\n", calculateSum((sliceOfIntegers)))
+
+	var integerStruct MyStruct = MyStruct{[]int{1, 2, 3, 4, 5}}
+	fmt.Println(integerStruct)
+	integerStruct = integerStruct.Pop()
+	fmt.Println(integerStruct)
+
+	var arrOfIntegers [5]int = [5]int{100, 20, 399, 4, 5}
+	fmt.Printf("Greatest of all integers is %v\n", findMax((arrOfIntegers)))
+
+	for i := range 10 {
+		fmt.Println(fibo(i))
+	}
+
+	fmt.Printf("The factorial of 4 is %v\n", fact(4))
+
+	fmt.Printf("The sum of 100, 200 and 550 is %v\n", sumOfNumbers(100, 200, 550))
+}
+
+// Write a function that takes a slice of integers and returns the sum of all elements.
+func calculateSum(slice []int) int {
+	sum := 0
+	for _, v := range slice {
+		sum += v
+	}
+	return sum
+}
+
+// Create a program that finds the maximum element in an array of integers.
+func findMax(arr [5]int) int {
+	max := arr[0]
+	for _, v := range arr {
+		if v > max {
+			max = v
+		}
+	}
+	return max
+}
+
+// Write a method for a struct representing a stack that pops the top element.
+type MyStruct struct {
+	stack []int
+}
+
+func (s MyStruct) Pop() MyStruct {
+	s.stack = s.stack[:len(s.stack)-1]
+	return s
+}
+
+// Fibonacci using Recursion
+func fibo(n int) int {
+	if n <= 1 {
+		return n
+	} else {
+		return fibo(n-1) + fibo(n-2)
+	}
+}
+
+// Factorial using Recursion
+func fact(n int) int {
+	if n <= 1 {
+		return n
+	} else {
+		return n * fact(n-1)
+	}
+}
+
+// Sum of numbers using Variadic Function and Naked Return
+func sumOfNumbers(numbers ...int) (sum int) {
+	for _, v := range numbers {
+		sum += v
+	}
+	return
 }
 
 func integerDivision(a int, b int) (int, int, error) {
