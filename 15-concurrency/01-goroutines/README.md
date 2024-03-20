@@ -20,10 +20,10 @@ func doSomeWork() {
 ```
 
 _Without Goroutines_
-![alt text](image-2.png)
+![alt text](./screenshots/image-2.png)
 
 _With Goroutines_
-![alt text](image-3.png)
+![alt text](./screenshots/image-3.png)
 
 ## Goroutines in Action
 
