@@ -19,10 +19,10 @@ func doSomeWork() {
 }
 ```
 
-_Without Goroutines_
+_Without Goroutines - takes 10+ seconds_
 ![alt text](./screenshots/image-2.png)
 
-_With Goroutines_
+_With Goroutines - takes 2 seconds_
 ![alt text](./screenshots/image-3.png)
 
 ## Goroutines in Action

@@ -32,8 +32,8 @@ In Go:
 
 So concurrency is about structure, parallelism is about actual simultaneous execution to improve performance.
 
-_Without Concurrency_
+_Without Concurrency - takes 10+ seconds_
 ![alt text](./01-goroutines/screenshots//image-2.png)
 
-_With Concurrency_
+_With Concurrency - takes 2 seconds_
 ![alt text](./01-goroutines/screenshots//image-3.png)
